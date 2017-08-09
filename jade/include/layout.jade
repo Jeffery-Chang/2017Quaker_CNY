@@ -1,0 +1,39 @@
+doctype html
+html
+    include head
+    // own style
+    link(rel = 'stylesheet', href = 'https://fonts.googleapis.com/icon?family=Material+Icons')
+    body
+        block trans
+            include trans
+        block rule
+            include rule.jade
+        // header
+        block header
+        header
+            a.logo(href="index.html") 
+                img(src="../img/logo.png", alt="logo" width="76")
+            // M Menu
+            include menubox
+            // PC menu 
+            block menu
+                nav
+                    ul
+                        li
+                          block indexlink
+                            a(href="index.html") 回首頁
+                        li
+                          block fbpagelink
+                            a(href="#") 粉絲投稿活動
+                        li
+                          block rulelink
+                            a(href="#") 活動辦法
+        // content
+        block content
+        //menu bur js
+        script(src = 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+        script(src = 'js/menubox.js')
+
+            
+
+

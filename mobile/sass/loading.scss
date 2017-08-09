@@ -1,0 +1,41 @@
+// reset
+@import "compass/reset";
+@import "compass/css3";
+// font style
+@import "color";
+@import "typography";
+// mixin
+@import "mixin";
+// layout
+@import "trans";
+@import "layout";
+// web own style
+@import "animation";
+// loading
+.loadingwrap {
+    background: url(../asset/svg/bg_dot.svg) repeat, $bg_red;
+    @include background-size(20%);
+    z-index: 99;
+}
+
+.loadingcontent {
+    @include box(5%, null);
+    @include pos_mid;
+    top: 55%;
+    min-width: 100px;
+    text-align: center;
+}
+
+.loading {
+    @include pos_mid;
+    @include box(100%, null);
+    @include box-sizing(border-box);
+    @include animation(loading 2s infinite ease-out);
+    @include img-scalable;
+    max-width: 200px;
+}
+
+.loadingtxt {
+    margin-top: 30px;
+    @include fontsize(pxrem(20px), null, null, null, 700);
+}

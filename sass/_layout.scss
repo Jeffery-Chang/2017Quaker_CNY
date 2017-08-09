@@ -1,0 +1,252 @@
+// for website grid system or section width and height.
+* {
+    @include box-sizing(border-box);
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+    // behavior: expression(this.onFocus=this.blur());
+    /* for IE */
+}
+
+b {
+    @include fontsize(null, null, null, null, 700);
+}
+
+// calligraphy
+.calligraphy {
+    font-family: 'calligraphy', 'DFKai-sb';
+    font-weight: 500;
+}
+
+body {
+    -webkit-overflow-scrolling: touch;
+    min-height: 600px;
+}
+
+html,
+body {
+    @include box(100%, 100%);
+    @include fontsize(pxrem(16px), black, pxrem(28px), null, 400);
+    font-family: 'Noto Sans TC', "微軟正黑體", "Microsoft JhengHei", "AppleGothic", "Verdana", sans-serif;
+    background: url(../asset/svg/bg_dot.svg) repeat, $bg_white;
+    position: relative;
+    z-index: -5;
+}
+
+.wrap {
+    @include box(100%, 100%);
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+    text-align: center;
+}
+
+.wrapper {
+    @include box(100%, 100%);
+    margin: auto;
+    text-align: center;
+}
+
+// firstcontent
+.firstcontent {
+    @include box(100%, 100vh);
+    position: relative;
+}
+
+// redbg
+.redbg {
+    @include absl(null, 0, 0, null);
+    @include box(100%, 200px);
+    z-index: -1;
+    &:before {
+        content: "";
+        display: block;
+        background: url(../asset/svg/bg_dot.svg) repeat, $bg_red;
+        @include absl(-300px, 0, null, null);
+        @include box(100%, 1100px);
+        @include transform(skewY(15deg) translate3d(0, 0, 0));
+        @include background-size(20%);
+        z-index: -1;
+    }
+}
+
+// footer
+footer {
+    @include box(100%, auto);
+    @include fontsize(pxrem(13px), white, null, 1px, 400);
+    position: relative;
+    background: $main_red;
+    text-align: center;
+    padding: 15px 0;
+    a {
+        color: white;
+    }
+    .gotop {
+        @include box(110px, 55px);
+        @include pos_mid;
+        transform: translate(-50%, -100%);
+        top: 0;
+        background: url(../asset/svg/gotop.svg) no-repeat;
+        span {
+            @include pos_mid;
+            transform: translate(-50%, 0);
+            bottom: 0;
+            img {
+                @include box(15px, 23px);
+            }
+        }
+    }
+}
+
+// right-bottom-corner product
+.product_fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    &:before {
+        content: "";
+        @include box(0, 0);
+        @include absl(null, null, 0, 0);
+        display: block;
+        border-style: solid;
+        border-width: 0 0 250px 250px;
+        border-color: transparent transparent $dark_red transparent;
+        z-index: -1;
+    }
+    .product_can {
+        @include box(80px, auto);
+        @include img-scalable;
+        margin-right: 50px;
+        margin-bottom: 20px;
+    }
+}
+
+// popup content
+.popbg {
+    display: none;
+    position: fixed;
+    @include box(100%, 100%);
+    @include opacity(0.7);
+    background-color: $dark_red;
+    z-index: 50;
+}
+
+.rulewrap {
+    display: none;
+    @include box(100%, 100%);
+    position: fixed;
+    z-index: 100;
+}
+
+.rule {
+    @include box(50%, 80%);
+    @include pos_mid;
+    overflow: hidden;
+    background-color: #fff;
+    min-width: 600px;
+    min-height: 400px;
+    text-align: center;
+    padding: 160px 35px 30px 35px;
+    h2 {
+        @include fontsize(pxrem(50px), null, null, null, null);
+        position: absolute;
+        top: 90px;
+        left: 50%;
+        @include transform(translateX(-50%));
+    }
+    .gotop {
+        @include box(110px, 55px);
+        @include pos_mid;
+        @include transform(rotate(180deg));
+        top: 0;
+        left: calc(50% - 55px);
+        background: url(../asset/svg/gotop.svg) no-repeat;
+        .close {
+            @include pos_mid;
+            @include transition(all .3s ease);
+            @include transform(rotate(0deg));
+            top: 67%;
+            left: 40%;
+            span {
+                @include box(23px, 2px);
+                @include transition(all .3s ease);
+                margin-bottom: 5px;
+                background-color: #fff;
+                display: block;
+                &:first-child {
+                    @include transform(rotate(45deg) translate3d(2px, 4px, 0px));
+                }
+                &:last-child {
+                    @include transform (rotate(-45deg) translate3d(0px, -4px, 0px));
+                }
+            }
+        }
+        &:hover {
+            .close {
+                @include transform(rotate(360deg));
+            }
+        }
+    }
+}
+
+.rulecontent {
+    @include box(100%, 100%);
+    text-align: left;
+    padding: 0 50px;
+    @include fontsize(pxrem(15px), null, null, null, null);
+    text-align: justify;
+    h3 {
+        @include fontsize(pxrem(18px), $main_red, null, null, 700);
+        margin: 30px 0 20px 0;
+    }
+    .tips {
+        li {
+            @include fontsize(pxrem(13px), null, null, null, null);
+            list-style-type: decimal;
+            margin-left: 20px;
+        }
+    }
+    .award {
+        @include fontsize(0, null, null, null, null);
+    }
+    .awarditem,
+    .awardtxt {
+        @include inline-block;
+        vertical-align: top;
+    }
+    .awarditem {
+        @include img-scalable;
+        @include box(170px, null);
+        @media only screen and (max-width: 1300px) {
+            display: block;
+            @include box(50%, null);
+        }
+    }
+    .awardtxt {
+        @include box(calc(100% - 170px), null);
+        padding: 40px 0 0 30px;
+        h4 {
+            @include fontsize(pxrem(16px), $main_red, 25px, null, 700);
+            span {
+                @include fontsize(pxrem(13px), #000, 25px, null, 400);
+                margin-left: 10px;
+            }
+        }
+        p {
+            @include fontsize(pxrem(13px), #000, null, null, null);
+        }
+        @media only screen and (max-width: 1440px) {
+            br {
+                display: none;
+            }
+        }
+        @media only screen and (max-width: 1300px) {
+            @include box(70%, null);
+            padding: 20px 0 0 0;
+            display: block;
+        }
+    }
+}

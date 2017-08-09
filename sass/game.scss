@@ -1,0 +1,134 @@
+// reset
+@import "compass/reset";
+@import "compass/css3";
+// font style
+@import "color";
+@import "typography";
+// mixin
+@import "mixin";
+// layout
+@import "trans";
+@import "layout";
+// web own style
+@import "scroll";
+@import "nav";
+@import "animation";
+@import "checkbox";
+// index maintxt
+.game {
+    @include box(100%, 100%);
+    position: relative;
+    overflow: hidden;
+    &:after {
+        content: '';
+        display: block;
+        @include background-size(cover);
+        @include absl(null, 20px, -5px, null);
+        @include box(400px, 180px);
+        background: url(../asset/svg/pomo.svg) no-repeat;
+        z-index: -1;
+    }
+}
+
+.gamecontent {
+    @include box(800px, auto);
+    @include pos_mid;
+    margin: auto;
+    text-align: center;
+    .gamekv {
+        @include box(100%, auto);
+        @include img-scalable;
+        margin: auto;
+        position: relative;
+        .coupletcontent {
+            @include pos_mid;
+            @include box(600px, null);
+            .couplet {
+                margin: 40px 0;
+                @include fontsize(0, null, null, null, null);
+                span {
+                    @include fontsize(pxrem(25px), null, null, null, null);
+                    @include inline-block;
+                    margin-right: 10px;
+                }
+                input {
+                    @include input(60%);
+                }
+            }
+        }
+    }
+    @media only screen and (max-width: 1366px) {
+        @include box(680px, auto);
+    }
+    @media only screen and (max-width: 1280px) {
+        @include box(680px, auto);
+    }
+    @media only screen and (max-width: 768px) {
+        @include box(600px, auto);
+        .coupletcontent {
+            @include box(300px, null);
+            .couplet {
+                margin: 20px 0;
+                input {
+                    @include box(70%, null);
+                }
+            }
+        }
+    }
+    // redbtn
+    .btnwrap {
+        @extend %redbtn;
+    }
+    .preview {
+        @include box(150px, 50px);
+        @include border-radius(10px);
+        @include fontsize(pxrem(15px), #fff, null, null, null);
+        @include transition(all .3s ease);
+        background-color: $fb_color;
+        border: 3px solid $fb_color;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+        span {
+            span {
+                margin-left: 5px;
+                @include transition(all .3s ease);
+                @include inline-block;
+            }
+        }
+        img {
+            @include inline-block;
+        }
+        &:hover {
+            background-color: #282828;
+            border-color: #282828;
+            span {
+                span {
+                    margin-left: 15px;
+                }
+            }
+        }
+    }
+}
+
+// loading
+.loadingcontent {
+    @include box(5%, null);
+    @include pos_mid;
+    top: 55%;
+    min-width: 100px;
+    text-align: center;
+    z-index: 1;
+    .loading {
+        @include pos_mid;
+        @include box(100%, null);
+        @include box-sizing(border-box);
+        @include animation(loading 2s infinite ease-out);
+        @include img-scalable;
+        max-width: 200px;
+    }
+    .loadingtxt {
+        margin-top: 30px;
+        @include fontsize(pxrem(16px), null, null, null, 700);
+    }
+}

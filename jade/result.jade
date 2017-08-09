@@ -1,0 +1,58 @@
+//- 一個檔案只能extends一次
+extends ./include/layout.jade
+//- 插入每頁自己的樣式
+block own_style
+	link(rel = 'stylesheet', href = 'css/result.css')
+// main content
+block content
+	.wrap
+		//oblique bg
+		.redbg
+		//result
+		.result.firstcontent
+			.resultcontent
+				//result kv
+				.mainresult
+					//result title
+					h2
+						img(src="../asset/svg/resulttitle.svg" alt="過年開運補氣就靠人蔘春聯!" width="110")
+					.resultkv
+						//result1 -- office
+						img(style="display:none;")(src="../img//result/office.png")
+						//result2 -- hotpot
+						img(src="../img//result/hotpot.png")
+					//btn
+					ul.btnwrap
+						li.sharebutton
+							a(href="#")
+								button
+									span
+										img(src="../asset/svg/share_icon.svg" width="8px") 
+										span 分享即開運
+						li.printbutton
+							a(href="#")
+								button
+									span
+										img(src="../asset/svg/print_icon.svg" width="18px")
+										span 列印春聯
+							ul.choosetype
+								li
+									a(href="#") Desktop
+								li
+									a(href="#") Mobile
+					//threemoves
+					.threemoves
+						h3 過年養氣三招
+						ul
+							li
+								span 開運招
+								img.fbicon(src="../asset/svg/fbicon.svg" width="25px")
+								| 分享抽<b>桂格開運禮盒</b>
+							li
+								span 元氣招
+								| 列印人蔘春聯，補充滿滿元氣
+							li
+								span 集氣招
+								| 粉絲團投稿人蔘春聯照片送好禮
+	//right-bottom-corner product
+	include include/product

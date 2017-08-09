@@ -1,0 +1,60 @@
+//- 一個檔案只能extends一次
+extends ./include/layout.jade
+//- 插入每頁自己的樣式
+block own_style
+	link(rel = 'stylesheet', href = 'css/index.css')
+//- active的樣式不同
+block index
+	a.active 回首頁
+// main content
+block content
+	.wrap.overflow
+		//index
+		section.index
+			//oblique bg
+			.redbg
+			.kvdiv
+				// maintxt
+				.maintxt
+					p.
+						未來的好運氣，靠桂格幫你養氣！<br>
+						寫下你的人蔘金句，分享就抽桂格好人蔘<br>
+						變身人蔘勝利組！
+					h1
+						img(src="../asset/svg/title.svg" alt="這就是人蔘R" width="110")
+					.redbutton.gotogame
+						a(href="#")
+							button
+								span
+									img(src="../asset/svg/pen.svg" width="40px") 
+									span 馬上揮毫
+				//kv
+				.kv
+					.desktopkv(style="display:none;")
+						img(src="../img/desktopkv.png")
+					.mobilekv
+						img(src="../img/mobilekv.png")
+		section.thebest
+			h2.calligraphy
+				span 春節送禮送健康
+				| 桂格養氣人蔘禮盒最好
+			ul.bestlist
+				li
+					h5 品質第一
+					p 桂格嚴選6年長白山人蔘，堅持手工採收後，原料經過426道的農藥殘留及重金屬檢驗，再以獨家工法萃取出珍貴的人蔘皂苷精華。
+				li
+					h5 護肝第一
+					p 桂格養氣人蔘是唯一獲得國家健康食品護肝認證*的人蔘滋補液，經動物實驗證實，有助於降低肝指數(GOT/GPT)，護肝、護健康。
+						span *護肝保健功效認證：根據動物試驗結果，對四氯化碳誘發大鼠肝臟損傷具有下列功效，(1)有助於降低血清GOT、GPT值、(2)有助於增加血清中白蛋白含量(健康食品衛署健食字第A00059號)。
+				li
+					h5 口碑第一
+					p 不敗熱銷產品，連續10年全國銷售冠軍的人蔘滋補液**，護肝大使謝震武真心推薦，10年親身護肝見證。
+						span **根據Kantar Worldpanel指出桂格養氣人蔘滋補液於2006年1月1日至2016年6月19日之銷售金額為台灣人蔘滋補液市場第一。
+				.product_can
+					img(src="../img/product_can.png")
+		section.spokesman
+			h2.calligraphy
+				span 春節送禮送健康
+				| 桂格養氣人蔘禮盒最好
+		//footer
+		include include/footer

@@ -1,0 +1,119 @@
+// nav input style.
+header {
+    @include box(90%, auto);
+    position: fixed;
+    margin: 0 5%;
+    text-align: right;
+    z-index: 10;
+    top: 0;
+}
+
+.logo {
+    @include absl(0, 0, null, null);
+    @include img-scalable;
+    max-width: 50px;
+}
+
+// menu
+#menu {
+    @include absl(25px, null, null, 0);
+}
+
+// burger style
+#bur {
+    span {
+        @include box(25px, 5px);
+        @include transition(all, .3s, ease, 0s);
+        margin-bottom: 5px;
+        background-color: $main_red;
+        display: block;
+    }
+}
+
+// m menu
+.menubox {
+    @include box(100%, 100%);
+    @include transform(translateX(-100%));
+    @include transition(all, .3s, ease, 0s);
+    background: url(../../asset/svg/dot.svg) repeat, $bg_white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    footer {
+        @include box(100%, null);
+        @include absl(null, 0, 0, null);
+        text-align: left;
+        padding-left: 30px;
+        // iphone5
+        @media screen and (max-width: 374px) {
+            padding-left: 10px;
+        }
+        .gotop {
+            display: none;
+        }
+    }
+    ul {
+        text-align: left;
+        @include pos_mid;
+        top: 40%;
+    }
+    li {
+        margin: 30px 0;
+        margin-top: 0;
+        a {
+            @include fontsize(pxrem(20px), #000, null, 1px, null);
+            @include transition(all .3s ease);
+            &:before {
+                content: '';
+                @include box(15px, 15px);
+                @include transition(all .8s ease);
+                margin-right: 5px;
+                display: inline-block;
+                background: url(../../asset/svg/nav_icon.svg);
+            }
+        }
+        a.active {
+            color: $main_red;
+            &:before {
+                background: url(../../asset/svg/nav_iconhover.svg);
+            }
+        }
+    }
+}
+
+#menu.turn {
+    #bur {
+        span:first-child {
+            @include transform(rotate(45deg) translate3d(2px, 4px, 0px));
+        }
+        span:last-child {
+            @include transform(rotate(-45deg) translate3d(4px, -5px, 0px));
+        }
+    }
+    .menubox {
+        @include box(100%, 100%);
+        @include transform(translateX(-100%));
+        @include transform(translateX(0));
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: $bg_white;
+        ul {
+            li {
+                @include opacity(1);
+                visibility: visible;
+                margin-top: 40px;
+            }
+            li:first-child {
+                @include transition(all 170ms cubic-bezier(.47, .04, .36, .99));
+            }
+            li:nth-child(2) {
+                @include transition(all 300ms cubic-bezier(.47, .04, .36, .99));
+            }
+            li:last-child {
+                @include transition(all 400ms cubic-bezier(.47, .04, .36, .99));
+            }
+        }
+    }
+}

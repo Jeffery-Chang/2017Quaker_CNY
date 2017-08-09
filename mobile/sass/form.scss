@@ -1,0 +1,58 @@
+// reset
+@import "compass/reset";
+@import "compass/css3";
+// font style
+@import "color";
+@import "typography";
+// mixin
+@import "mixin";
+// layout
+@import "trans";
+@import "layout";
+// web own style
+@import "nav";
+@import "animation";
+@import "checkbox";
+// index maintxt
+.formcontent {
+    @include box(90%, null);
+    @include pos_mid;
+    text-align: center;
+    z-index: 2;
+    h2 {
+        @include fontsize(pxrem(45px), null, null, null, null);
+        margin-bottom: 30px;
+    }
+    .btnwrap {
+        @extend %redbtn;
+    }
+}
+
+.formlist {
+    @include box(null, 235px);
+    position: relative;
+    .successtxt {
+        @include box(100%, null);
+        @include pos_mid;
+        top: 45%;
+        @include fontsize(pxrem(18px), #000, 40px, null, null);
+        span {
+            @include fontsize(pxrem(25px), $main_red, null, null, 700);
+        }
+    }
+}
+
+.forminput {
+    @include fontsize(0, null, null, null, null);
+    text-align: left;
+    margin: 15px 0;
+    span {
+        @include fontsize(pxrem(15px), null, null, null, null);
+        @include inline-block;
+        @include box(45px, null);
+        margin-right: 20px;
+    }
+    input {
+        @include input(calc(100% - 65px));
+    }
+}

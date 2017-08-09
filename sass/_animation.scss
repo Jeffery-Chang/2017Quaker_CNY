@@ -1,0 +1,87 @@
+// animation input style.
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($str) {
+    -webkit-animation: #{$str};
+    -moz-animation: #{$str};
+    -ms-animation: #{$str};
+    -o-animation: #{$str};
+    animation: #{$str};
+}
+
+// loading
+@include keyframes(float) {
+    from {
+        margin-top: 10px;
+    }
+    65% {
+        margin-top: 20px;
+    }
+    to {
+        margin-top: 10px;
+    }
+}
+
+// loading
+@include keyframes(loading) {
+    from {
+        top: -35px;
+    }
+    65% {
+        top: -60px;
+    }
+    to {
+        top: -35px;
+    }
+}
+
+// gotogame button
+@include keyframes(gotogame) {
+    from {
+        background-color: $main_red;
+        border-color: $main_red;
+    }
+    65% {
+        background-color: #f40000;
+        border-color: #f40000;
+    }
+    to {
+        background-color: $main_red;
+        border-color: $main_red;
+    }
+}
+
+// gotogame pen
+@include keyframes(gotogame_pen) {
+    from {
+        @include transform(rotate(0deg));
+        top:-10px;
+        left:0;
+    }
+    65% {
+        @include transform(rotate(-10deg));
+        top:-8px;
+        left:3px;
+    }
+    to {
+        @include transform(rotate(0deg));
+        top:-10px;
+        left:0;
+    }
+}

@@ -1,0 +1,76 @@
+//color palette: https://www.google.com/design/spec/style/color.html#color-color-palette
+//$mapColor parameters
+//class name
+//background-color
+//icon color
+$mapColor: ('black', '#000', '#000');
+.sb-checkbox {
+    @include fontsize(0, null, null, null, null);
+    text-align: justify;
+    display: inline-block;
+    p {
+        @include box(calc(100% - 30px), null);
+        @include fontsize(pxrem(14px), null, null, null, null);
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 10px;
+        a {
+            @include fontsize(null, #000, null, null, null);
+            @include transition(all .3s ease);
+            padding-left: 3px;
+            &:hover {
+                color: $main_red;
+            }
+        }
+    }
+    &__input {
+        display: none;
+        &:checked {
+            + .sb-checkbox__label {
+                &:after {
+                    @include opacity(1);
+                }
+            }
+        }
+    }
+    &__label {
+        @include inline-block;
+        @include box(20px, 20px);
+        position: relative;
+        cursor: pointer;
+        &:before {
+            content: '';
+            @include box(20px, 20px);
+            @include box-sizing(border-box);
+            @include inline-block;
+            @include absl(0, 0, null, null);
+            border: 3px solid;
+        }
+        &:after {
+            content: 'done';
+            @include box(20px, 20px);
+            @include opacity(0);
+            @include fontsize(pxrem(16px), null, pxrem(16px), null, 500);
+            @include transition(.2s opacity);
+            font-family: 'Material Icons';
+            text-align: center;
+            display: block;
+            overflow: hidden;
+            text-align: center;
+        }
+        @each $class,
+        $color1,
+        $color2 in $mapColor {
+            &--#{$class} {
+                &:before {
+                    border-color: #{$color1};
+                    color: #{$color2};
+                }
+                &:after {
+                    background-color: #{$color1};
+                    color: #{$color2};
+                }
+            }
+        }
+    }
+}

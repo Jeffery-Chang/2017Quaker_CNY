@@ -1,0 +1,55 @@
+//- 一個檔案只能extends一次
+extends ./include/layout.jade
+//- 插入每頁自己的樣式
+block own_style
+	link(rel = 'stylesheet', href = 'css/result.css')
+// main content
+block content
+	.wrap
+		//oblique bg
+		.redbg
+		//result
+		.result.firstcontent
+			.resultcontent
+				//result title
+				.resultkv
+					//result1 -- office
+					img(style="display:none;")(src="../img//result/office.png")
+					//result2 -- hotpot
+					img(src="../img//result/hotpot.png")
+				//threemoves
+				.threemoves
+					h3 過年養氣三招
+					h2.calligraphy 開運補氣就靠養氣人蔘！
+					ul
+						li
+							span 開運招
+							img.fbicon(src="../asset/svg/fbicon.svg" width="18px")
+							| 分享抽<b>桂格開運禮盒</b>
+						li
+							span 元氣招
+							| 列印人蔘春聯，補充滿滿元氣
+						li
+							span 集氣招
+							| 粉絲團投稿人蔘春聯照片送好禮
+				//btn
+				ul.btnwrap
+					li.sharebutton
+						a(href="#")
+							button
+								span
+									img(src="../asset/svg/share_icon.svg" width="8px") 
+									span 分享即開運
+
+					li.printbutton
+						a(href="#")
+							button
+								span
+									img(src="../asset/svg/print_icon.svg" width="18px")
+									span 列印春聯
+						// click printbutton to visible
+						ul.choosetype(style="display:none;")
+							li
+								a(href="#") Desktop
+							li
+								a(href="#") Mobile

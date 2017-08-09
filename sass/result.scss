@@ -1,0 +1,176 @@
+// reset
+@import "compass/reset";
+@import "compass/css3";
+// font style
+@import "color";
+@import "typography";
+// mixin
+@import "mixin";
+// layout
+@import "trans";
+@import "layout";
+// web own style
+@import "scroll";
+@import "nav";
+@import "animation";
+// index maintxt
+.result {
+    @include box(100%, 100%);
+    position: relative;
+    overflow: hidden;
+    &:after {
+        content: '';
+        display: block;
+        @include background-size(cover);
+        @include absl(null, 20px, -5px, null);
+        @include box(400px, 180px);
+        background: url(../asset/svg/pomo.svg) no-repeat;
+        z-index: -1;
+    }
+}
+
+.resultcontent {
+    @include pos_mid;
+    h2,
+    .threemoves {
+        @include absl(10%, null, null, null);
+    }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+        h2 {
+            img {
+                width: 90px;
+            }
+        }
+    }
+}
+
+.mainresult {
+    @include box(800px, auto);
+    text-align: center;
+    position: relative;
+    margin: auto;
+    @media only screen and (max-width: 1440px) {
+        @include box(750px, auto);
+    }
+    @media only screen and (max-width: 1366px) {
+        @include box(650px, auto);
+    }
+    @media only screen and (max-width: 1280px) {
+        @include box(600px, auto);
+    }
+    @media only screen and (max-width: 1024px) {
+        @include box(550px, auto);
+    }
+    .resultkv {
+        @include box(100%, auto);
+        @include img-scalable;
+        border: 10px solid $main_red;
+        margin: auto;
+    }
+    h2 {
+        left: -150px;
+        img {
+            @include box(110px, 429px);
+        }
+    }
+    .threemoves {
+        @include writing_vertical-rl;
+        right: -150px;
+        h3 {
+            @include fontsize(pxrem(32px), $main_red, null, null, 700);
+            margin-left: 15px;
+            text-align: initial;
+            position: relative;
+            &:before {
+                content: "";
+                @include box(50px, 50px);
+                @include absl(-30px, null, null, -50px);
+                display: block;
+                background: url(../img/firework.gif) no-repeat;
+                @include background-size(contain);
+            }
+        }
+        ul {
+            text-align: initial;
+            li {
+                span {
+                    color: $main_red;
+                    margin-bottom: 10px;
+                }
+                .fbicon {
+                    display: inline-block;
+                    margin-bottom: 5px;
+                }
+                b {
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+    // resultbtn
+    .btnwrap {
+        @include fontsize(0, null, null, null, null);
+        margin-top: 15px;
+        >li {
+            @include box(150px, 60px);
+            @include inline-block;
+            margin: 0 20px;
+            cursor: pointer;
+        }
+        a {
+            display: block;
+            @include box(100%, 100%);
+        }
+        .sharebutton {
+            button {
+                @include btn(3px, $fb_color, $bg_red, $fb_color);
+            }
+        }
+        .printbutton {
+            position: relative;
+            button {
+                @include btn(3px, $main_red, $bg_red, $main_red);
+            }
+            ul {
+                @include absl(-110px, 0, null, null);
+                @include box(100%, 0);
+                background-color: $bg_red;
+                border-bottom-color: $bg_red;
+                overflow: hidden;
+                margin-bottom: 15px;
+                @include transition(all .3s ease);
+                a {
+                    display: block;
+                    @include fontsize(pxrem(16px), $main_red, 60px, 1px, 500);
+                    @include transition(all .3s ease);
+                }
+                li {
+                    @include box(100%, 60px);
+                    &:hover {
+                        a {
+                            color: #fff;
+                            background-color: $main_red;
+                        }
+                    }
+                }
+            }
+            &:hover {
+                button {
+                    border-top-color: $bg_red;
+                }
+                ul {
+                    @include box(100%, 120px);
+                    margin-bottom: 0;
+                    border: 3px solid $main_red;
+                    border-bottom-color: transparent;
+                }
+            }
+        }
+        .newbutton {
+            position: relative;
+            button {
+                @include btn(3px, $main_red, $bg_red, $main_red);
+            }
+        }
+    }
+}

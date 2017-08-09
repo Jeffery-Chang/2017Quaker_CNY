@@ -1,0 +1,48 @@
+//- 一個檔案只能extends一次
+extends ./include/layout.jade
+//- 插入每頁自己的樣式
+block own_style
+	link(rel = 'stylesheet', href = 'css/game.css')
+// main content
+block content
+	.wrap
+		//oblique bg
+		.redbg
+		//game
+		.game.firstcontent
+			.gamecontent
+				//game kv
+				.gamekv
+					button.preview
+						span
+								img(src="../asset/svg/preview.svg" width="18px") 
+								span 即時預覽
+
+					img(src="../img/gamekv.png")
+				//couplet input content
+				.coupletcontent
+					.couplet
+								span.calligraphy 上聯
+								input(type="text" placeholder="輸入文字(８字元內)" )
+							.couplet
+								span.calligraphy 下聯
+								input(type="text" placeholder="輸入文字(８字元內)" )
+				//btn
+				ul.btnwrap
+					li.redbutton
+						a(href="#")
+							button
+								span
+									img(src="../asset/svg/random.svg" width="18px") 
+									span 隨機
+					li.redbutton
+						a(href="result.html")
+							button
+								span
+									img(src="../asset/svg/submit.svg" width="18px") 
+									span 送出
+				//checkbox
+				.sb-checkbox
+					input#check1.sb-checkbox__input(type='checkbox', name='check1')
+					label.sb-checkbox__label.sb-checkbox__label--black(for='check1')
+					p 本人已詳閱相關<a href="#"><b>活動辦法</b></a>

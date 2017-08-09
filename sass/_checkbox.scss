@@ -1,0 +1,80 @@
+//color palette: https://www.google.com/design/spec/style/color.html#color-color-palette
+//$mapColor parameters
+//class name
+//background-color
+//icon color
+$mapColor: ('black', '#000', '#000');
+.sb-checkbox {
+    @include inline-block;
+    @include fontsize(0, null, null, null, null);
+    margin: 10px 0;
+    text-align: justify;
+    p {
+        @include box(calc(100% - 30px), null);
+        @include fontsize(pxrem(14px), null, null, null, null);
+        @include inline-block;
+        vertical-align: top;
+        margin-left: 10px;
+        a {
+            @include fontsize(null, #000, null, null, null);
+            @include transition(all .3s ease);
+            padding-left: 3px;
+            &:hover {
+                color: $main_red;
+            }
+        }
+    }
+    &__input {
+        display: none;
+        &:checked {
+            + .sb-checkbox__label {
+                &:after {
+                    @include opacity(1);
+                }
+            }
+        }
+    }
+    &__label {
+        @include inline-block;
+        @include box(20px, 20px);
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+        &:before {
+            content: '';
+            @include box(20px, 20px);
+            @include box-sizing(border-box);
+            @include inline-block;
+            @include absl(0, 0, null, null);
+            border: 3px solid;
+        }
+        &:after {
+            content: ' ';
+            @include box(15px, 15px);
+            @include opacity(0);
+            @include transition(.2s opacity);
+            @include box-sizing(border-box);
+            background-color: #000;
+            border: 3px solid $bg_red;
+            display: block;
+            overflow: hidden;
+            z-index: -1;
+            position: relative;
+            margin: 3px 2px;
+        }
+        @each $class,
+        $color1,
+        $color2 in $mapColor {
+            &--#{$class} {
+                &:before {
+                    border-color: #{$color1};
+                    color: #{$color2};
+                }
+                &:after {
+                    background-color: #{$color1};
+                    color: #{$color2};
+                }
+            }
+        }
+    }
+}

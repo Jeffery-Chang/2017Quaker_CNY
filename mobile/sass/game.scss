@@ -1,0 +1,99 @@
+// reset
+@import "compass/reset";
+@import "compass/css3";
+// font style
+@import "color";
+@import "typography";
+// mixin
+@import "mixin";
+// layout
+@import "trans";
+@import "layout";
+// web own style
+@import "nav";
+@import "animation";
+@import "checkbox";
+// index maintxt
+.gamecontent {
+    @include box(85%, auto);
+    margin: auto;
+    margin-top: 15%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    .gamekv {
+        @include box(100%, auto);
+        @include img-scalable;
+        margin: auto;
+        position: relative;
+    }
+    //couplet input content
+    .coupletcontent {
+        @include box(100%, null);
+        .couplet {
+            margin: 20px 0;
+            @include fontsize(0, null, null, null, null);
+            // iphone5
+            @media screen and (max-width: 374px) {
+                margin: 15px 0;
+            }
+            span {
+                @include fontsize(pxrem(25px), null, null, null, null);
+                @include inline-block;
+                margin-right: 10px;
+            }
+            input {
+                @include input(75%);
+            }
+        }
+    }
+    // redbtn
+    .btnwrap {
+        @extend %redbtn;
+        margin-bottom: 10px;
+    }
+    .preview {
+        @include pos_mid;
+        @include box(150px, 50px);
+        @include border-radius(10px);
+        @include fontsize(pxrem(15px), #fff, null, null, null);
+        @include transition(all .3s ease);
+        background-color: $fb_color;
+        border: 3px solid $fb_color;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+        span {
+            span {
+                margin-left: 5px;
+                @include transition(all .3s ease);
+                @include inline-block;
+            }
+        }
+        img {
+            @include inline-block;
+        }
+    }
+}
+
+// loading
+.loadingcontent {
+    @include box(5%, null);
+    @include pos_mid;
+    top: 55%;
+    min-width: 100px;
+    text-align: center;
+    z-index: 1;
+    .loading {
+        @include pos_mid;
+        @include box(100%, null);
+        @include box-sizing(border-box);
+        @include animation(loading 2s infinite ease-out);
+        @include img-scalable;
+        max-width: 200px;
+    }
+    .loadingtxt {
+        margin-top: 30px;
+        @include fontsize(pxrem(16px), null, null, null, 700);
+    }
+}

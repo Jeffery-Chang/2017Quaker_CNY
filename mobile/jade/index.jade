@@ -1,0 +1,148 @@
+//- 一個檔案只能extends一次
+extends ./include/layout.jade
+//- 插入每頁自己的樣式
+block own_style
+	link(rel = 'stylesheet', href = 'css/index.css')
+//- active的樣式不同
+block index
+	a.active 回首頁
+// main content
+block content
+	.wrapper
+		//index
+		section.index
+			//oblique bg
+			.redbg
+			.kvdiv
+				img(src="../img/mindex.png" alt="這就是人蔘R")
+				//- // maintxt
+				//- .maintxt
+				//- 	h1
+				//- 		img(src="../asset/svg/title.svg" alt="這就是人蔘R" width="80")
+				.redbutton.gotogame
+					a(href="#")
+						button
+							span
+								img(src="../asset/svg/pen.svg" width="40") 
+								span 馬上揮毫
+				//- //kv
+				//- .kv
+				//- 	.mobilekv
+				//- 		img(src="../img/mobilekv.png")
+		//thebest
+		section.thebest
+			h2.calligraphy
+				span 春節送禮送健康
+				| 桂格養氣人蔘禮盒最好
+			ul.bestlist
+				li
+					h5 品質第一
+					p 桂格嚴選6年長白山人蔘，堅持手工採收後，原料經過426道的農藥殘留及重金屬檢驗，再以獨家工法萃取出珍貴的人蔘皂苷精華。
+				li
+					h5 護肝第一
+					p 桂格養氣人蔘是唯一獲得國家健康食品護肝認證*的人蔘滋補液，經動物實驗證實，有助於降低肝指數(GOT/GPT)，護肝、護健康。
+						span *護肝保健功效認證：根據動物試驗結果，對四氯化碳誘發大鼠肝臟損傷具有下列功效，(1)有助於降低血清GOT、GPT值、(2)有助於增加血清中白蛋白含量(健康食品衛署健食字第A00059號)。
+				li
+					h5 口碑第一
+					p 不敗熱銷產品，連續10年全國銷售冠軍的人蔘滋補液**，護肝大使謝震武真心推薦，10年親身護肝見證。
+						span **根據Kantar Worldpanel指出桂格養氣人蔘滋補液於2006年1月1日至2016年6月19日之銷售金額為台灣人蔘滋補液市場第一。
+		//spokesman
+		section.spokesman
+			h2.calligraphy
+					span 桂格養氣人蔘
+					| 對它，我深信不疑！
+			
+			.allproduct
+				.person
+					img(src="../img/people.png")
+					.sign
+						b 代言人 /
+						img(src="../img/sign.png" width="100")
+						span 本人使用10年
+			.allproduct_txt
+				p.
+					身兼多職的小武哥，生活只能用滿檔來形容，除了本業之外，手上也有許多節目與廣告代言，更要兼顧家庭和妻兒，可說是蠟燭多頭燒。
+				p.
+					小武哥的健康秘訣，就是<b>10年來每天喝一瓶桂格養氣人蔘</b>，讓他保有滿滿活力與元氣、護肝護健康，從容面對生活的各項挑戰。
+		//blogger
+		section.blogger
+			h2.calligraphy 各大部落客熱情見證
+			ul.bloglist
+				li
+					a.blogimg(href="http://polomanbo.pixnet.net/blog/post/44833996" target="_blank")
+						img(src="../img/blogger/1.png")
+					.blogtxt
+						h5 桂格養氣人蔘，顧肝保養的好物
+						p 養氣人蔘甜甜的，順口就可以喝下去，不小心就喝上癮了 ... <a href="#">more</a>
+						span by 波家生活趣
+				li
+					a.blogimg(href="http://thebz2.pixnet.net/blog/post/423346313" target="_blank")
+						img(src="../img/blogger/2.png")
+					.blogtxt
+						h5 對辛苦的自己好點，護肝顧健康! 
+
+						p 長輩也很愛，我媽媽就喝了不少瓶，拿來當禮物伴手禮送 ... <a href="http://doki2014ex.pixnet.net/blog/post/42365005" target="_blank">more</a>
+						span by 海豚男的塗鴉本
+				li
+					a.blogimg(href="http://doki2014ex.pixnet.net/blog/post/42365005" target="_blank")
+						img(src="../img/blogger/3.png")
+					.blogtxt
+						h5 真材實料全台唯一護肝認證！
+						p 桂格養氣人蔘顏色較為清澈，香氣沒這麼重，主要還是人 ... <a href="http://thebz2.pixnet.net/blog/post/423346313" target="_blank">more</a>
+						span by 長得要命王國
+				li
+					a.blogimg(href="http://pigx3.pixnet.net/blog/post/42213134" target="_blank")
+						img(src="../img/blogger/4.png")
+					.blogtxt
+						h5 桂格養氣人蔘，顧肝保養的好物
+						p 桂爸爸每天都會喝一瓶固氣補健康，看見爸爸能臉色紅潤 ... <a href="http://pigx3.pixnet.net/blog/post/42213134" target="_blank">more</a>
+						span by 賤豬三兄弟與搞笑狼
+				li
+					a.blogimg(href="http://sana217.pixnet.net/blog/post/44857624" target="_blank")
+						img(src="../img/blogger/5.png")
+					.blogtxt
+						h5 桂格養氣人蔘，顧肝保養的好物
+						p 瓶口的設計還蠻好開的，一拉就起來了！冰糖的甘甜加上 ... <a href="http://sana217.pixnet.net/blog/post/44857624" target="_blank">more</a>
+						span by SANA(殺哪～)
+		//userexperience
+		section.userexperience
+			h2.calligraphy 消費者有感體驗
+			ul.userlist
+				li
+					.usericon
+						img(src="../asset/svg/icon_down.svg" width='100')
+					.usertxt
+						h5 <span class="calligraphy">指數成功下降</span>張○芳｜ 先生使用5年
+						p.
+							五年前先生身體常覺得很疲倦、口氣也不好，於是乎去了醫院做了健康檢查，發現指數太高，在偶然間看到桂格養氣人蔘廣告，所以買來姑且試試看，喝了半年後為了驗證到底有沒有成效，於是又去醫院檢查，指數果真下降了！讓我們對此產品大大的產生了信心，也推薦給大伯及他的小孩使用，一直到現在5年了都還持續在喝喔！只能說桂格養氣人蔘很讚喔！
+				li
+					.usericon
+						img(src="../asset/svg/icon_happy.svg" width='100')
+					.usertxt
+						h5 <span class="calligraphy">有精神更快樂</span>溫○莉｜ 媽媽使用2年
+						p.
+							媽媽是個非常忙碌的人，從早上開始送貨一直忙到下午4點左右，晚上又到夜市去幫朋友的忙，一直到晚上12點才可以回家休息。每天一直努力的工作把我們3個孩子養大，一年多前發現媽媽變得很累很疲倦，我們開始買桂格養氣人蔘給她喝，一開始她總是說那很貴，叫我省一點，但媽媽的健康是有錢也買不到的，現在她精神體力都變好了，健康又快樂的幸福樣子是我最大的幸福，感謝桂格養氣人蔘照顧我的媽媽，謝謝！
+				li
+					.usericon
+						img(src="../asset/svg/icon_dumbbell.svg" width='100')
+					.usertxt
+						h5 <span class="calligraphy">維持高檔狀態</span>沈○建｜ 本人使用5年
+						p.
+							人生再多的財富，再大的成就，倘若身體不健康，財富成就有何意義？我65歲了，例行的健康檢查大多符合標準，因此我每天早上打籃球運動1小時，一直維持標準身材與充沛體力，外加養氣人蔘1瓶，這就是親友醫生詢問我保持健康、身材的原因及方法！朋友們！您也不妨試試桂格的產品，加上足夠運動，相信「建康就是幸福」將永遠伴隨。
+				li
+					.usericon
+						img(src="../asset/svg/icon_up.svg" width='100')
+					.usertxt
+						h5 <span class="calligraphy">元氣步步高升</span>黃○慧｜ 媽媽使用8年
+						p.
+							媽媽年紀大了，常常容易感到疲憊，像是爬樓梯會有稍喘的情形，第一次買養氣人蔘給媽媽飲用，每天喝一瓶，大約2個星期後，和媽媽聊天時，他提出還要再接著買養氣人蔘，媽媽說:「吾崊吾差喔！」除了精神不錯以外，爬樓梯沒有常喘息，喝到現在已經8年了！氣色保持得很好，身邊人的感受最實在！我也開心。
+		//video
+		section.video
+			h2.calligraphy 
+				span 送禮選第一
+				| 桂格養氣人蔘禮盒
+			.moviebox
+				.movie
+					iframe(src="https://www.youtube.com/embed/s1Kv7_fWk3E?rel=0" frameborder="0" allowfullscreen)
+		//footer
+		include include/footer

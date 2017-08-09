@@ -1,0 +1,357 @@
+// reset
+@import "compass/reset";
+@import "compass/css3";
+// font style
+@import "color";
+@import "typography";
+// mixin
+@import "mixin";
+// layout
+@import "trans";
+@import "layout";
+// web own style
+@import "scroll";
+@import "nav";
+@import "animation";
+// index section main title
+.wrapper {
+    @include box(100%, 100%);
+    margin: auto;
+    text-align: center;
+    h2 {
+        @include fontsize(pxrem(32px), null, null, null, null);
+        position: relative;
+        z-index: 2;
+        span {
+            @include fontsize(pxrem(20px), null, null, null, null);
+            display: block;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+// index maintxt
+.index {
+    @include box(100%, 100%);
+    position: relative;
+}
+
+// kvdiv
+.kvdiv {
+    // @include pos_mid;
+    @include fontsize(0, null, null, null, null);
+    @include box(100%, auto);
+    @include img-scalable;
+    position: relative;
+    margin: auto;
+    margin-top: 80px;
+    z-index: 1;
+}
+
+// gotogame btn
+.gotogame {
+    @include box(170px, 60px);
+    @include absl(null, 50%, 50px, null);
+    @include transform(translateX(-50%));
+    cursor: pointer;
+    z-index: 1;
+    // iphone5
+    @media screen and (max-width: 374px) {
+        @include box(160px, null);
+        @include absl(null, null, 80px, null);
+    }
+    &:after {
+        content: "";
+        // display: block;
+        display: none;
+        background: url(../asset/svg/arrowdown.svg) no-repeat;
+        margin-top: 10px;
+        margin-left: 75px;
+        @include box(17px, 35px);
+        @include animation(float 1s infinite);
+    }
+    a {
+        display: block;
+        @include box(100%, 100%);
+    }
+    button {
+        @include btn(3px, $main_red, $main_red, #fff);
+        @include animation(gotogame 1.3s infinite ease-in);
+        &:after {
+            content: "";
+            display: block;
+            border: 3px solid $main_yel;
+            @include box(90%, 72%);
+            @include pos_mid;
+        }
+        span {
+            img {
+                @include animation(gotogame_pen 1.3s infinite ease-out);
+                @include transition(all .3s ease);
+                position: relative;
+                z-index: 1;
+            }
+        }
+    }
+}
+
+// ------------- index end
+// thebest section
+.thebest {
+    background: url(../asset/svg/bg_dot.svg) repeat, $bg_red;
+    @include box(100%, auto);
+    @include background-size(20%);
+    position: relative;
+    margin: auto;
+    margin-top: -100px;
+    &:after {
+        content: "";
+        display: block;
+        background: url(../asset/svg/bg_dot.svg) repeat, $bg_red;
+        @include absl(null, 0, -400px, null);
+        @include box(100%, 700px);
+        @include transform(skewY(-15deg) translate3d(0, 0, 0));
+        @include background-size(20%);
+        z-index: -1;
+    }
+    h2 {
+        @include fontsize(pxrem(30px), null, null, null, null);
+    }
+    ul.bestlist {
+        @include box(90%, null);
+        margin-top: 50px;
+        display: inline-block;
+        text-align: left;
+        position: relative;
+        li {
+            background-color: #fff;
+            @include border-radius(30px);
+            margin-bottom: 30px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            h5 {
+                @include fontsize(pxrem(25px), #fff, null, 2px, 700);
+                @include border-top-left-radius(30px);
+                @include border-top-right-radius(30px);
+                background-color: $main_red;
+                padding: 15px 0;
+                text-align: center;
+            }
+            p {
+                padding: 15px 20px;
+            }
+            span {
+                @include fontsize(pxrem(13px), #666666, null, null, null);
+                display: block;
+            }
+        }
+    }
+}
+
+// ------------- thebest end
+// ------------- spokesman start
+.spokesman {
+    @include fontsize(0, null, null, null, null);
+    @include box(100%, null);
+    position: relative;
+    text-align: center;
+    margin: 100px auto auto auto;
+    h2 {
+        margin-bottom: 50px;
+    }
+    .allproduct_txt {
+        padding: 30px 5%;
+        text-align: left;
+        p {
+            @include fontsize(pxrem(15px), null, null, null, null);
+        }
+    }
+    .allproduct {
+        @include box(100%, null);
+        text-align: left;
+        .person {
+            @include img-scalable;
+            @include box(100%, null);
+            margin-left: -5%;
+            position: relative;
+            z-index: 1;
+        }
+        .sign {
+            @include absl(null, null, 0, 30px);
+            @include fontsize(pxrem(13px), null, null, null, 700);
+            img,
+            span,
+            b {
+                vertical-align: bottom;
+            }
+            img {
+                margin-bottom: -7px;
+            }
+            b {
+                display: block;
+            }
+            span {
+                margin-left: 5px;
+                padding: 5px 5px;
+                background-color: $main_red;
+                @include fontsize(null, #fff, null, null, null);
+                @include border-radius(10px);
+            }
+            // iphone5
+            @media screen and (max-width: 374px) {
+                @include absl(null, null, 0, 0);
+            }
+        }
+        .allprodutcimg {
+            @include box(100%, null);
+            @include img-scalable;
+            margin-top: 25%;
+        }
+    }
+}
+
+// ------------- spokesman end
+// ------------- blogger start
+.blogger {
+    @include fontsize(0, null, null, null, null);
+    @include box(90%, null);
+    margin: 50px auto auto auto;
+    .buybutton {
+        @include fontsize(pxrem(18px), #fff, null, null, null);
+        @include transition(all .3s ease);
+        @include border-radius(10px);
+        display: inline-block;
+        padding: 20px 50px;
+        background-color: $main_red;
+        margin-bottom: 100px;
+        margin-top: -200px;
+    }
+    .bloglist {
+        text-align: left;
+        margin: auto;
+        margin-top: 50px;
+        li {
+            @include fontsize(pxrem(15px), null, null, null, 700);
+            @include box(100%, null);
+            text-align: left;
+            margin-bottom: 30px;
+            @include fontsize(pxrem(14px), null, null, null, null);
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        .blogimg {
+            @include box(80px, 80px);
+            display: inline-block;
+            vertical-align: top;
+            @include img-scalable;
+            border: 2px solid $main_red;
+            background-color: #fff;
+            position: relative;
+            overflow: hidden;
+            // iphone5
+            @media screen and (max-width: 374px) {
+                @include box(70px, 70px);
+            }
+        }
+        .blogtxt {
+            display: inline-block;
+            vertical-align: top;
+            @include box(calc(100% - 90px), null);
+            padding-left: 10px;
+            // iphone5
+            @media screen and (max-width: 374px) {
+                @include box(calc(100% - 80px), null);
+            }
+            a {
+                text-decoration: underline;
+                @include fontsize(null, #000, null, null, 700);
+            }
+            h5 {
+                @include fontsize(null, null, null, null, 700);
+            }
+            p {
+                @include fontsize(null, null, null, null, 400);
+            }
+            span {
+                @include fontsize(null, #666666, null, null, 400);
+            }
+        }
+    }
+}
+
+// ------------- blogger end
+// ------------- userexperience start
+.userexperience {
+    @include fontsize(0, null, null, null, null);
+    @include box(90%, null);
+    margin: 100px auto auto auto;
+    .userlist {
+        margin-top: 50px;
+        li {
+            margin-bottom: 50px;
+        }
+    }
+    .usericon {
+        margin-bottom: 30px;
+        // iphone5
+        @media screen and (max-width: 374px) {
+            margin-bottom: 15px;
+        }
+    }
+    .usertxt {
+        @include fontsize(pxrem(15px), null, null, null, null);
+        text-align: left;
+        // iphone5
+        @media screen and (max-width: 374px) {
+            text-align: center;
+        }
+        h5 {
+            @include fontsize(null, null, null, null, 700);
+            margin-bottom: 5px;
+            // iphone5
+            @media screen and (max-width: 374px) {
+                margin-bottom: 10px;
+            }
+        }
+        span {
+            @include fontsize(pxrem(30px), $main_red, null, null, null);
+            margin-right: 10px;
+            // iphone5
+            @media screen and (max-width: 374px) {
+                display: block;
+            }
+        }
+        p {
+            text-align: left;
+        }
+    }
+}
+
+// ------------- userexperience end
+// ------------- video start
+.video {
+    @include box(100%, 100%);
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    background-color: #fff;
+    padding-top: 100px;
+    margin-bottom: -70px;
+    .moviebox {
+        @include aspect-ratio(16, 9);
+        @include box(90%, null);
+        max-width: 700px;
+        margin: 50px auto -50px auto;
+        background-color: #000;
+        .movie {
+            @include box(100%, 100%);
+            iframe {
+                @include box(100%, 100%);
+            }
+        }
+    }
+}
+
+// ------------- video end

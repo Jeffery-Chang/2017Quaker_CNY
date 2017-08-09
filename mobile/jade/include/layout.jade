@@ -1,0 +1,26 @@
+doctype html
+html
+    include head
+    // own style
+    link(rel = 'stylesheet', href = 'https://fonts.googleapis.com/icon?family=Material+Icons')
+    body
+        block trans
+            include trans
+        block rule
+            include rule.jade
+        // header
+        block header
+        header
+            a.logo(href="index.html") 
+                img(src="../img/logo.png", alt="logo" width="76")
+            // M Menu
+            include menubox
+        // content
+        block content
+        //menu bur js
+        script(src = 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+        script(src = 'js/menubox.js')
+
+            
+
+

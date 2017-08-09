@@ -1,0 +1,74 @@
+// reset
+@import "compass/reset";
+@import "compass/css3";
+// font style
+@import "color";
+@import "typography";
+// mixin
+@import "mixin";
+// layout
+@import "trans";
+@import "layout";
+// web own style
+@import "scroll";
+@import "nav";
+@import "animation";
+@import "checkbox";
+
+// index maintxt
+.form {
+    @include box(100%, 100%);
+    position: relative;
+    overflow: hidden;
+    &:after {
+        content: '';
+        display: block;
+        @include background-size(cover);
+        @include absl(null, 20px, -5px, null);
+        @include box(400px, 180px);
+        background: url(../asset/svg/pomo.svg) no-repeat;
+        z-index: -1;
+    }
+}
+
+.formcontent {
+    @include box(90%, null);
+    @include absl(25%, 50%, null, null);
+    @include transform(translateX(-50%));
+    max-width: 550px;
+    text-align: center;
+    h2 {
+        @include fontsize(pxrem(65px), null, null, null, null);
+        margin-bottom: 50px;
+    }
+    .btnwrap {
+        @extend %redbtn;
+    }
+}
+
+.formlist {
+    @include box(null, 250px);
+    position: relative;
+    .successtxt {
+        @include pos_mid;
+        @include fontsize(pxrem(18px), #000, 40px, null, null);
+        span {
+            @include fontsize(pxrem(25px), $main_red, null, null, 700);
+        }
+    }
+}
+
+.forminput {
+    @include fontsize(0, null, null, null, null);
+    text-align: left;
+    margin: 20px 0;
+    span {
+        @include fontsize(pxrem(18px), null, null, null, null);
+        @include inline-block;
+        @include box(60px, null);
+        margin-right: 20px;
+    }
+    input {
+        @include input(calc(100% - 80px));
+    }
+}

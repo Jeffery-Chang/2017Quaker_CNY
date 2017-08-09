@@ -1,0 +1,140 @@
+// reset
+@import "compass/reset";
+@import "compass/css3";
+// font style
+@import "color";
+@import "typography";
+// mixin
+@import "mixin";
+// layout
+@import "trans";
+@import "layout";
+// web own style
+@import "nav";
+@import "animation";
+// index maintxt
+.resultcontent {
+    @include box(100%, null);
+    margin: auto;
+    margin-top: 20%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    .resultkv {
+        @include box(100%, null);
+        @include img-scalable;
+        border: 5px solid $main_red;
+    }
+    .threemoves {
+        @include box(92%, auto);
+        margin-top: 10px;
+        text-align: left;
+        display: inline-block;
+        // movestitle
+        h3 {
+            @include fontsize(pxrem(18px), $main_red, null, null, 700);
+            position: relative;
+            &:after {
+                content: "";
+                margin-left: 10px;
+                @include box(23px, 30px);
+                @include inline-block;
+                background: url(../img/firework.gif) no-repeat;
+                @include background-size(contain);
+            }
+            // iphone6
+            @media screen and (min-width: 375px) and (max-width: 413px) {
+                margin-bottom: 5px;
+            }
+            // iphone6+
+            @media screen and (min-width: 414px) and (max-width: 959px) {
+                margin-bottom: 10px;
+            }
+        }
+        h2 {
+            @include fontsize(pxrem(30px), null, null, -1px, null);
+            margin-left: -3px;
+            // iphone5
+            @media screen and (max-width: 374px) {
+                display: none;
+            }
+        }
+        // threemoves
+        ul {
+            margin-top: 10px;
+            // iphone5
+            @media screen and (max-width: 374px) {
+                margin-top: 0;
+            }
+            li {
+                @include fontsize(pxrem(15px), null, pxrem(28px), null, null);
+                span {
+                    color: $main_red;
+                    margin-right: 10px;
+                    font-weight: 700;
+                }
+                .fbicon {
+                    @include inline-block;
+                    margin-right: 5px;
+                }
+                b {
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+    // resultbtn
+    .btnwrap {
+        @include fontsize(0, null, null, null, null);
+        margin-top: 10px;
+        // iphone5
+        @media screen and (max-width: 374px) {
+            margin-top: 5px;
+        }
+        >li {
+            @include box(44%, 60px);
+            display: inline-block;
+            margin: 0 2%;
+            cursor: pointer;
+        }
+        a {
+            display: block;
+            @include box(null, 100%);
+        }
+        .sharebutton {
+            button {
+                @include btn(3px, $fb_color, null, $fb_color);
+            }
+        }
+        .printbutton {
+            position: relative;
+            button {
+                @include btn(3px, $main_red, null, $main_red);
+            }
+            ul {
+                @include absl(-110px, 0, null, null);
+                @include box(100%, 120px);
+                @include transition(all .3s ease);
+                background-color: $bg_red;
+                border-bottom-color: $bg_red;
+                margin-bottom: 0;
+                border: 3px solid $main_red;
+                border-bottom-color: transparent;
+                a {
+                    display: block;
+                    @include fontsize(pxrem(16px), $main_red, 60px, 1px, 500);
+                    @include transition(all .3s ease);
+                }
+                li {
+                    @include box(100%, 60px);
+                }
+            }
+        }
+        .newbutton {
+            position: relative;
+            button {
+                @include btn(3px, $main_red, null, $main_red);
+            }
+        }
+    }
+}

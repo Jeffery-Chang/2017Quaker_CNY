@@ -1,0 +1,211 @@
+// all mixins.
+// pxrem
+$top: 50%;
+$left: 50%;
+$lateX: -50%;
+$lateY: -50%;
+@function pxrem($px, $content: 16px) {
+    @return ($px / $content) * 1rem;
+}
+
+// full-screen
+@mixin full-screen {
+    width: 100%;
+    min-height: 100%;
+}
+
+// boxsize
+@mixin box($w, $h) {
+    width: $w;
+    height: $h;
+}
+
+// position absl
+@mixin absl($top, $left, $bottom, $right) {
+    position: absolute;
+    top: $top;
+    left: $left;
+    bottom: $bottom;
+    right: $right;
+}
+
+// position middle
+@mixin pos_mid {
+    @include absl(50%, 50%, null, null);
+    @include transform(translate(-50%, -50%));
+}
+
+@mixin fontsize($fontsize, $color, $lineheight, $spacing, $fontweight) {
+    font-size: $fontsize;
+    color: $color;
+    line-height: $lineheight;
+    letter-spacing: $spacing;
+    font-weight: $fontweight;
+}
+
+// imgscalable
+@mixin img-scalable {
+    >img {
+        @include box(100%, auto);
+        display: block;
+    }
+}
+
+// clearboth
+@mixin clear {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+// vertical align
+@mixin v-align($h) {
+    &:after {
+        content: "";
+        @include inline-block;
+        width: 0;
+        height: $h;
+    }
+}
+
+// circle
+@mixin circle($unit) {
+    width: $unit;
+    height: $unit;
+    border-radius: 100%;
+}
+
+// word writing_vertical-rl
+@mixin writing_vertical-rl {
+    // ie only
+    writing-mode: tb-rl;
+    // other browser
+    -moz-writing-mode: vertical-rl;
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+    text-align: left;
+}
+
+// video
+@mixin aspect-ratio($w, $h) {
+    position: relative;
+    &:before {
+        display: block;
+        content: "";
+        @include box(100%, null);
+        padding-top: ($h / $w) * 100%;
+    }
+    > .movie {
+        @include absl(0, 0, 0, 0);
+    }
+}
+
+// btnwrap
+@mixin btn($border, $bordercolor, $bg-color, $color) {
+    @include box(100%, 100%);
+    @include transition(all .3s ease);
+    text-align: center;
+    position: relative;
+    padding: 0;
+    border: $border solid $bordercolor;
+    background-color: $bg-color;
+    text-align: center;
+    color: $color;
+    >span {
+        @include fontsize(pxrem(16px), null, null, 1px, 500);
+        @include inline-block;
+        @include v-align(100%);
+        span {
+            @include inline-block;
+            @include transition(all .3s ease);
+            margin-left: 8px;
+        }
+        img {
+            @include inline-block;
+            @include box(null, 18px);
+        }
+    }
+    &:hover {
+        &:after {
+            content: "";
+            display: block;
+        }
+        >span {
+            span {
+                margin-left: 15px;
+            }
+        }
+    }
+}
+
+// redbtn
+%redbtn {
+    @include fontsize(0, null, null, null, null);
+    margin: 15px 0;
+    >li {
+        @include box(150px, 60px);
+        @include inline-block;
+        margin: 0 20px;
+        cursor: pointer;
+        &:hover {
+            button:after {
+                border: 3px solid $dark_red;
+            }
+        }
+        a {
+            display: block;
+            @include box(100%, 100%);
+        }
+    }
+    button {
+        @include btn(3px, $main_red, $main_red, #fff);
+        &:after {
+            content: "";
+            display: block;
+            border: 3px solid $main_yel;
+            @include box(90%, 72%);
+            @include transition(all .3s ease);
+            @include pos_mid;
+        }
+    }
+}
+
+@mixin input($w) {
+    @include box($w, 40px);
+    @include inline-block;
+    @include fontsize(pxrem(16px), null, null, null, null);
+    padding: 0 15px;
+    border: 0;
+}
+
+// scroll 
+%scroll {
+    padding: 0 10px;
+    overflow: auto;
+    @include box-sizing(border-box);
+    ::-webkit-scrollbar {
+        @include box(8px, null);
+    }
+    ::-webkit-scrollbar-track {
+        display: none;
+        border: 0 solid #fff;
+        @include box-sizing(border-box);
+    }
+    ::-webkit-scrollbar-track:horizontal {
+        border-bottom-width: 0px;
+    }
+    ::-webkit-scrollbar-track:vertical {
+        border-right-width: 0px;
+    }
+    ::-webkit-scrollbar-thumb {
+        border: 0px solid $main_red;
+    }
+    ::-webkit-scrollbar-thumb:horizontal {
+        margin-left: 80px;
+        border-bottom-width: 8px;
+    }
+    ::-webkit-scrollbar-thumb:vertical {
+        margin-left: 10px;
+        border-right-width: 8px;
+    }
+}
